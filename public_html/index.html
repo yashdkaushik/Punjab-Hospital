@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Punjab Hospital</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body{
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    /* Top Bar Styles */
+.top-bar {
+  background: linear-gradient(90deg, white, #007fa5); /* nice blue gradient */
+  padding: 10px 40px;
+  color: #007fa5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.top-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand .logo {
+  width: 70px;
+  height: auto;
+  /* no border-radius here */
+}
+.brand-text h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+.brand-text small {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+.contact-info {
+  display: flex;
+  gap: 24px;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+.contact-item i {
+  font-size: 1.2rem;
+}
+.contact-item:hover {
+  background: rgba(255,255,255,0.2);
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .top-bar-container {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 4px 16px;
+    display: flex;
+  }
+  .top-bar {
+  background: linear-gradient(90deg, white, #007fa5); /* nice blue gradient */
+  padding: 4px 16px;
+  color: #007fa5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand .logo {
+    width: 60px;
+  }
+  .brand-text h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+  .brand-text small {
+    font-size: 9px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+  }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 0.8rem;
+  text-decoration: none;
+  padding: 4px 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+}
+/* Pulse animation for emergency icon */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.5);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+.contact-item i.fa-truck-medical {
+  color: #ff3c3c; /* Red color for emergency */
+  padding: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+     /* navbar section    */
+  /* Base styles */
+.navbar {
+  background: linear-gradient(90deg, #007fa5, #004d66);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  justify-content: center;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: auto;
+}
+
+.hamburger-menu .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.navbar-items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.navbar-item {
+  color: white;
+  padding: 16px;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar-item:hover {
+  color: #ffedc2;
+}
+
+/* Dropdown styles */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #004d66;
+  display: none;
+  flex-direction: column;
+  min-width: 200px;
+  z-index: 999;
+}
+
+.dropdown-item {
+  padding: 12px 16px;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background: #007fa5;
+  color: #ffedc2;
+}
+
+/* Show dropdown on hover (desktop) */
+.navbar-item:hover .dropdown-menu {
+  display: flex;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .navbar-items-wrapper {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-items-wrapper.active {
+    display: flex;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    flex-direction: column;
+    background: #004d66;
+  }
+
+  .navbar-item.dropdown-open .dropdown-menu {
+    display: flex;
+  }
+}
+
+/* Hamburger animation (optional) */
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-6px, -6px);
+}
+
+  
+ 
+  /* --- Mobile Styles --- */
+    /* .mobile-navbar {
+      display: none;
+      background: #444;
+      color: #fff;
+      padding: 18px 0 18px 36px;
+      font-size: 1.5em;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mobile-navbar .menu-text {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .hamburger {
+      margin-right: 36px;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 7px;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 4px;
+      background: #fff;
+      border-radius: 2px;
+    } */
+    /* Mobile menu, hidden by default */
+    /* .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 56px;
+      left: 0;
+      width: 100%;
+      background: #444;
+      z-index: 999;
+      flex-direction: column;
+    }
+    .mobile-menu a {
+      color: #fff;
+      text-decoration: none;
+      padding: 18px 24px;
+      display: block;
+      border-top: 1px solid #666;
+    }
+    .mobile-menu a:hover {
+      background: #2c2c2c;
+    } */
+
+    /* --- Responsive Rules --- */
+    /* @media (max-width: 900px) {
+      .navbar {
+        display: none !important;
+      }
+      .mobile-navbar {
+        display: flex;
+      }
+      .mobile-menu {
+        display: none;
+      }
+      .mobile-menu.active {
+        display: flex;
+      }
+    }
+    @media (min-width: 901px) {
+      .mobile-navbar, .mobile-menu {
+        display: none !important;
+      }
+      .navbar {
+        display: flex;
+      }
+    } */
+
+     /* slider section */
+    .owl-carousel .item {
+      height: 450px; 
+      background-image:no-repeat;
+      background-position:auto;
+      background-size: 100% 100%;
+    }
+    section {
+      padding: 50px 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.4s ease-in-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      text-align: center;
+      color: #004d66;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card i {
+      font-size: 2rem;
+      color: #006699;
+      margin-bottom: 10px;
+    }
+    .gallery img, .doctor img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .map iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+    }
+    .footer {
+      background-color: #01698b;
+      color: white;
+      padding: 40px 20px 20px;
+     font-family: sans-serif;
+    }
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-links,
+.footer-contact {
+  flex: 1 1 200px;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  margin-bottom: 10px;
+}
+
+.footer-links ul,
+.footer-contact p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a,
+.footer-contact a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  border-top: 1px solid #444;
+  margin-top: 20px;
+}
+
+/* ==================== About Us Section ==================== */
+#about-us {
+  position: relative;
+  padding: 60px 20px;
+  background: #f7f9fa;
+  color: #333;           /* make sure text color is visible */
+  opacity: 1;            /* ensure visibility */
+  visibility: visible;
+  overflow: visible;
+  z-index: 1;            /* stack on top */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#about-us .about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  padding: 0 10px;
+
+}
+
+#about-us .about-text,
+#about-us .about-image {
+  flex: 1 1 200px;
+  padding: 20px;
+  
+}
+
+#about-us h2 {
+  
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #004080;
+}
+#about-us h3 {
+  
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #004080;
+}
+
+#about-us p {
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+
+#about-us li{
+     color: #333;
+     line-height: 1.7;
+     margin-bottom: 0.8rem;
+    
+}
+
+#about-us .about-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(2, 2, 1, 0.7);
+  display: block; 
+  justify-content: left;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  #about-us .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  #about-us p {
+    color: #000 !important; /* enforce visible text color on mobile */
+    align-items: center; 
+      
+  }
+  
+}
+
+/* Style for the button container */
+#about-us .about-button-container {
+  margin-top: 2rem; /* Space above the button */
+  text-align: center;
+   /* Align button to the left by default */
+}
+
+/* Style for the Read More button */
+#about-us .btn-read-more {
+  display: inline-block; /* Allows padding and margin, but stays in line */
+  padding: 12px 20px; /* Vertical and horizontal padding */
+  background-color: #007bff; /* Primary accent color */
+  color: #ffffff; /* White text color */
+  text-decoration: none; /* Remove underline from link */
+  border-radius: 50px; /* Very rounded corners for a modern pill-like shape */
+  font-size: 1.1rem; /* Slightly larger font size */
+  font-weight: 600; /* Bolder text */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); /* Subtle shadow */
+}
+
+#about-us .btn-read-more:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Responsive adjustments for mobile button */
+@media (max-width: 768px) {
+  #about-us .about-button-container {
+    text-align: center; /* Center align button on mobile */
+    margin-top: 1.5rem; /* Slightly less space on mobile */
+  }
+
+  #about-us .btn-read-more {
+    padding: 10px 25px; /* Slightly smaller button on mobile */
+    font-size: 1rem; /* Standard font size on mobile */
+  }
+}
+
+ /* <--appointment section--> */
+    .appointments{
+      background-color: #fce2ab;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      margin: auto;
+    }
+    form input, form textarea, form button {
+      padding: 10px;
+      font-size: 1rem;
+    }
+    form button {
+      background: #006699;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #004d66;
+    }
+    .call-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #28a745;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      font-size: 24px;
+    }
+    marquee {
+      color: #e60000;
+      font-weight: bold;
+      padding: 10px 0;
+    }
+ /* <!-- Departments Section --> */
+       * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.departments {
+  background-color: #fce2ab;
+  padding: 40px 20px;
+  text-align: center;
+  max-width: 1800px;
+  margin: auto;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  position: static;
+ 
+}
+
+.departments h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #004d66;
+}
+
+.department-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  
+}
+
+.department-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+  flex: 1 1 300px;
+  max-width: 320px;
+  
+}
+    .department-card:hover {
+      transform: translateY(-5px);
+    }
+    .department-card i {
+      font-size: 3rem;
+      color: #006699;
+      margin-bottom: 20px;
+    }
+    .department-card h3 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .department-card p {
+      font-size: 1rem;
+      color: #777;
+    }
+     /* Mobile fix */
+@media (max-width: 768px) {
+  .department-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .department-card {
+    width: 90%;
+    max-width: 90%;
+  }
+  .departments{
+    padding: 50px 40px;
+    align-items: center;
+  }
+} 
+
+ /* <!-- Doctors Section --> */
+    .doctor-profiles{
+      background-color: #fff;
+    }
+
+    .docotrs {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.doctors-container {
+  padding: 0 10vw;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  border-radius: 10px;
+}
+.doctors-container::-webkit-scrollbar {
+  display: none;
+}
+
+.doctors-card {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 450px;
+  margin-right: 40px;
+}
+
+.doctors-image {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+.doctors-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  width: 90%;
+  text-transform:capitalize;
+  border: none;
+  outline: none;
+  background: #fff;
+  border-radius: 5px;
+  transition: 0.5s;
+  cursor: pointer;
+  opacity: 0;
+  text-decoration: none;
+  text-align: center;
+}
+
+.card-btn:hover {
+  opacity: 1;
+}
+
+.card-btn:hover {
+  background:#1e87ab;
+  color: #fff;
+}
+
+.doctors-info {
+  width: 100%;
+  height: 100px;
+  padding-top: 10px;
+}
+
+.doctors-name  {
+  text-transform:auto;
+  text-align: center;
+  color: #004d66;
+}
+
+.doctors-short-description {
+  color: #004d66;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden;
+  opacity: 0.7;
+  text-transform: capitalize;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.pre-btn,
+.nxt-btn {
+  border: none;
+  width: 4vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 200%);
+  cursor: pointer;
+  z-index: 8;
+}
+
+.pre-btn {
+  left: 0;
+  transform: rotate(180deg);
+}
+
+.nxt-btn {
+  right: 0;
+}
+
+.collection-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.collection {
+  position: relative;
+}
+
+.collection img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collection p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  text-transform: capitalize;
+}
+
+.collection:nth-child(3) {
+  grid-column: span 2;
+  margin-bottom: 10px;
+}
+/* <!-- Testimonials Section --> */
+.testimonials{
+  background-color: #fce2ab;
+}
+.product {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.product-category {
+  padding: 0 10vw;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  text-transform: capitalize;
+}
+
+.product-container {
+  padding: 0 10vw;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+   border-radius: 20px;
+}
+
+.product-container::-webkit-scrollbar {
+  display: none;
+}
+
+.product-card {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 450px;
+  margin-right: 40px;
+  border-radius: 20px;
+}
+
+.product-image {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+.product-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product-info {
+  text-align: center;
+  color: #004d66;
+  font-size: large;
+}
+.pre-btns,
+.nxt-btns {
+  border: none;
+  width: 10vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fce2ab 150%);
+  cursor: pointer;
+  z-index: 8;
+}
+
+.pre-btns {
+  left: 0;
+  transform: rotate(180deg);
+}
+
+.nxt-btns {
+  right: 0;
+}
+
+.pre-btn img,
+.nxt-btn img {
+  opacity: 0.2;
+}
+/* contact section */
+.contacts{
+  background-color: #fff;
+}
+.footer-credits {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+  text-align: center; /* Align to the right of this section */
+}
+.footer-credits  a{
+  text-decoration: none;
+  color:#ddd;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card-link:hover .department-card {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* read more about us  */
+
+ .read-more-btn {
+      display: inline-block;
+      background-color: #007fa5;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 15px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .read-more-btn:hover {
+      background-color: #005f7f;
+    }
+      @media screen and (max-width: 600px) {
+         .read-more-btn {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+<!-- Top Bar -->
+<header class="top-bar">
+  <div class="top-bar-container">
+    <!-- Logo + Name -->
+    <div class="brand">
+      <img src="WhatsApp Image 2025-04-24 at 18.42.15_232ef862.jpg" alt="Punjab Hospital Logo" class="logo" />
+      <div class="brand-text">
+        <h1>Punjab Hospital</h1>
+        <small>Care. Attention. Excellence.</small>
+      </div>
+    </div>
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <a href="tel:+911324053395" class="contact-item">
+        <i class="fas fa-truck-medical"></i>
+        <span>Emergency: +91-1324053395</span>
+      </a>
+      <a href="tel:+919720924410" class="contact-item">
+        <i class="fas fa-phone-alt"></i>
+        <span>Helpline: +91-9720924410</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<header>
+
+  <nav class="navbar">
+  <div class="hamburger-menu" id="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <div class="navbar-items-wrapper" id="navbar-items-wrapper">
+    <a class="navbar-item" href="index.html">Home</a>
+
+    <div class="navbar-item has-dropdown">
+      About Us <span class="dropdown-arrow">&#9660;</span>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="opd.html">OPD Schedule</a>
+        <a class="dropdown-item" href="#">Hospital Infrastructure</a>
+        <a class="dropdown-item" href="ourservices.html">Our Trust Worthy Services</a>
+        <a class="dropdown-item" href="#">Facilities Under One Roof</a>
+      </div>
+    </div>
+
+    <div class="navbar-item has-dropdown">
+      Our Departments <span class="dropdown-arrow">&#9660;</span>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="generalsur.html">General Surgery</a>
+        <a class="dropdown-item" href="ortho.html">Orthopaedics</a>
+        <a class="dropdown-item" href="cardio.html">Cardiology</a>
+         <a class="dropdown-item" href="neuroo.html">Neurology</a>
+          <a class="dropdown-item" href="gyno.html">Gynecology</a>
+      </div>
+    </div>
+
+    <a class="navbar-item" href="#doctors">Our Team</a>
+
+    <div class="navbar-item has-dropdown">
+      Scope of Services <span class="dropdown-arrow">&#9660;</span>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="emer24.html">24x7 Services</a>
+        <a class="dropdown-item" href="#">Diagnostic Services</a>
+      </div>
+    </div>
+
+    <div class="navbar-item has-dropdown">
+      Gallery <span class="dropdown-arrow">&#9660;</span>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="gallery.html">Photo Gallery</a>
+        <a class="dropdown-item" href="video.html">Video Gallery</a>
+      </div>
+    </div>
+
+    <a class="navbar-item" href="empanelment.html">Our Empanelment</a>
+    <a class="navbar-item" href="con.html">Contact</a>
+  </div>
+</nav>
+
+</header>
+
+<!-- Slider Section -->
+<div class="owl-carousel owl-theme">
+  <div class="item" style="background-image: url('WhatsApp Image 2025-04-22 at 18.21.29_a0535271.jpg');"></div>
+  <div class="item" style="background-image: url('hosimg1.jpg');"></div>
+  <div class="item" style="background-image: url('UPimg.jpg');"></div>
+</div>
+
+ <!-- //about us section-->
+<section id="about-us" class="about-us">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>About Punjab Hospital</h2>
+      <p>Punjab Hospital is dedicated to delivering high-quality healthcare with compassion, timeliness, and affordability. Feedback and suggestions from our patients help us continuously enhance our services.</p>
+
+      <p>Our goal is to be a trusted healthcare partner for every family, offering a wide range of specialized services in a caring and comfortable environment. Your health is our priority.</p>
+
+      <h3>Our Quality Standards</h3>
+      <ul>
+        <li>Continuously monitor and evaluate treatments.</li>
+        <li>Align performance with national healthcare standards.</li>
+        <li>Focus on preventive care for better patient outcomes.</li>
+      </ul>
+
+      <h3>Certifications & Accreditations</h3>
+      <ul>
+        <li><strong>NABH-Certified:</strong> Highest standards in clinical care and safety.</li>
+        <li><strong>NABL-Accredited Lab:</strong> Precision diagnostics under ISO 15189.</li>
+        <li><strong>NABH Emergency Standards:</strong> Rapid, life-saving emergency care.</li>
+      </ul>
+
+      
+    </div>
+    <div class="about-image">
+      <div class="slideshow-container">
+        <img class="slide" src="IMG-20250520-WA0012.jpg" alt="Hospital front view" />
+        <img class="slide" src="IMG-20250520-WA0003.jpg" alt="Hospital team" />
+        <img class="slide" src="IMG-20250520-WA0030.jpg" alt="Hospital care services" />
+      </div>
+    </div>
+  <div class="about-button-container">
+        <a href="aboutus.html" class="btn-read-more">Read More</a>
+      </div>
+  </div>
+</section>
+
+
+<!-- Key Services Section -->
+<section id="services">
+  <h2>Our Key Services</h2>
+  <div class="grid">
+   <a href="emer24.html" class="card-link">
+  <div class="card">
+    <i class="fas fa-ambulance"></i>
+    <p>Emergency 24x7</p>
+  </div>
+</a>
+
+   <a href="modularoprthea.html" class="card-link">
+  <div class="card">
+    <i class="fas fa-theater-masks"></i>
+    <p>Modular Operation Theatre</p>
+  </div>
+</a>
+    
+    <a href="icu.html" class="card-link">
+  <div class="card">
+    <i class="fas fa-heartbeat"></i>
+    <p>ICU & NICU</p>
+  </div>
+</a>
+
+    <a href="phar.html" class="card-link">
+  <div class="card">
+    <i class="fas fa-pills"></i>
+    <p>Pharmacy & Diagnostics</p>
+  </div>
+</a>
+
+  </div>
+</section>
+
+<!-- Departments Section -->
+<section class="departments">
+  <h2>Our Departments</h2>
+  <div class="grid">
+   <a href="generalmed.html" class="card-link">
+  <div class="department-card">
+    <i class="fas fa-briefcase-medical"></i>
+    <h3>General Medicine</h3>
+    <p>Comprehensive care for various medical conditions and general health concerns.</p>
+  </div>
+</a>
+
+   <a href="emer24.html" class="card-link">
+  <div class="department-card">
+    <i class="fas fa-syringe"></i>
+    <h3>Emergency Services</h3>
+    <p>24/7 emergency care with specialized medical attention for urgent needs.</p>
+  </div>
+</a>
+
+    <a href="cardio.html" class="card-link">
+  <div class="department-card">
+    <i class="fas fa-heartbeat"></i>
+    <h3>Cardiology</h3>
+    <p>Expert diagnosis and treatment of heart diseases and cardiovascular issues.</p>
+  </div>
+</a>
+
+   <a href="ortho.html" class="card-link">
+  <div class="department-card">
+    <i class="fas fa-bone"></i>
+    <h3>Orthopedics</h3>
+    <p>Comprehensive care for bone, joint, and muscle issues, including surgeries.</p>
+  </div>
+</a>
+
+    <a href="neuro.html" class="card-link">
+  <div class="department-card">
+    <i class="fas fa-brain"></i>
+    <h3>Neurology</h3>
+    <p>Specialized care for disorders of the nervous system, including brain and spinal cord.</p>
+  </div>
+</a>
+
+   <a href="phar.html" class="card-link">
+  <div class="department-card">
+    <i class="fas fa-pills"></i>
+    <h3>Pharmacy</h3>
+    <p>Accessible and reliable pharmacy services with expert guidance on medication.</p>
+  </div>
+</a>
+
+   <a href="gyno.html" class="card-link">
+  <div class="department-card">
+    <i class="fas fa-user-md"></i>
+    <h3>Gynecology</h3>
+    <p>Comprehensive care for women’s health, including reproductive and prenatal services.</p>
+  </div>
+</a>
+
+   <a href="generalsur.html" class="card-link">
+  <div class="department-card">
+    <i class="fas fa-user-md"></i>
+    <h3>General Surgery</h3>
+    <p>Expert surgical treatments for a wide range of conditions, including minimal invasive surgery.</p>
+  </div>
+</a>
+
+  </div>
+</section>
+<!-- Doctors Section -->
+ <header class="doctor-profiles">
+<section id="doctors">
+    <h2 class="doctors-category">Meet Our Dedicated Doctors Team</h2>
+            <button class="pre-btn"><img src="arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="arrow.png" alt=""></button>
+        <div class="doctors-container">
+            <div class="doctors-card">
+                <div class="doctors-image">
+                    <img src="mrs-shilpa-kawatra-md.jpg" class="doctors-thumb" alt="">
+                     <a href="shilpa.html" class="card-btn">View Profile</a>
+                </div>
+                <div class="doctors-info">
+                    <h3 class="doctors-name">Mrs.Shilpa Kawatra</h3>
+                    <h5 class="doctors-name">(MD)</h5>
+                    <p class="doctors-short-description"></p>
+                </div>
+                
+            </div>
+            <div class="doctors-card">
+                <div class="doctors-image">
+                    <img src="WhatsApp Image 2025-05-23 at 17.06.04_16a44263.jpg" class="doctors-thumb" alt="">
+                    <a href=" sajan.html" class="card-btn">View Profile</a>
+                </div>
+                <div class="doctors-info">
+                    <h3 class="doctors-name">Dr.Sajan Kawatra</h3>
+                    <h5 class="doctors-name">(BAMS)</h5>
+                    <p class="doctors-short-description">General Physician</p>
+                </div>
+            </div>
+            <div class="doctors-card">
+                <div class="doctors-image">
+                    <img src="doctor.png" class="doctors-thumb" alt="">
+                    <a href=" meena.html" class="card-btn">View Profile</a>
+                </div>
+                <div class="doctors-info">
+                    <h3 class="doctors-name">Dr.Meena Gupta</h3>
+                    <h5 class="doctors-name">(MBBS,MD,FRCOG)</h5>
+                    <p class="doctors-short-description">Obstetrician and Gynaecology</p>
+                </div>
+            </div>
+            <div class="doctors-card">
+                <div class="doctors-image">
+                    <img src="WhatsApp Image 2025-06-07 at 21.00.39_9ef990b9.jpg" class="doctors-thumb" alt="">
+                    <a href=" pradeep.html" class="card-btn">View Profile</a>
+                </div>
+                <div class="doctors-info">
+                    <h3 class="doctors-name">Dr.Pradeep Kumar</h3>
+                    <h5 class="doctors-name"></h5>
+                    <p class="doctors-short-description">Orthopaedics</p>
+                </div>
+            </div>
+            <div class="doctors-card">
+                <div class="doctors-image">
+                    <img src="doctor.png" class="doctors-thumb" alt="">
+                   <a href=" keval.html" class="card-btn">View Profile</a>
+                </div>
+                <div class="doctors-info">
+                    <h3 class="doctors-name">Dr.Keval Sondager</h3>
+                    <h5 class="doctors-name">(MBBS,MD,DCH)</h5>
+                    <p class="doctors-short-description">Pediatrician</p>
+                </div>
+            </div>
+            <div class="doctors-card">
+                <div class="doctors-image">
+                    <img src="WhatsApp Image 2025-06-07 at 20.45.55_c36538c0.jpg" class="doctors-thumb" alt="">
+                    <a href=" pk.html" class="card-btn">View Profile</a>
+                </div>
+                <div class="doctors-info">
+                    <h3 class="doctors-name">Dr.Varma P.K</h3>
+                    <h5 class="doctors-name">(MBBS,MS)</h5>
+                    <p class="doctors-short-description">General Physician</p>
+                </div>
+            </div>
+            <div class="doctors-card">
+                <div class="doctors-image">
+                    <img src="WhatsApp Image 2025-06-07 at 20.44.14_dee0230d.jpg" class="doctors-thumb" alt="">
+                    <a href=" pankaj.html" class="card-btn">View Profile</a>
+                </div>
+                <div class="doctors-info">
+                    <h3 class="doctors-name">Dr.Pankaj Pawar</h3>
+                    <h5 class="doctors-name">(MBBS,MS)</h5>
+                    <p class="doctors-short-description">Gold Medalist(Delhi) Orthopaedics </p>
+                    <p class="doctors-short-description">and Trauma Surgeon</p>
+                    <p class="doctors-short-description">Singapore and Germany Qualified</p>
+                </div>
+            </div>
+           
+            </div>
+        </div>
+ 
+  </section>
+ </header>
+<!-- Testimonials Section -->
+ <header class="testimonials">
+      <section id="product"> 
+        <h2 class="testimonials-category">Testimonials</h2>
+        <button class="pre-btns"><img src="images/arrow.png" alt=""></button>
+        <button class="nxt-btns"><img src="images/arrow.png" alt=""></button>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="t2.jpg" class="product-thumb" alt="">
+                </div>
+                <div class="product-info">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="t1.jpg" class="product-thumb" alt="">
+                </div>
+                <div class="product-info">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="t3.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="t5.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="t6.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="t7.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="t4.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="t8.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="t9.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="t10.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+             <div class="product-card">
+                <div class="product-image">
+                    <img src="t11.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+             <div class="product-card">
+                <div class="product-image">
+                    <img src="t12.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+             <div class="product-card">
+                <div class="product-image">
+                    <img src="t13.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+             <div class="product-card">
+                <div class="product-image">
+                    <img src="t14.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+             <div class="product-card">
+                <div class="product-image">
+                    <img src="t16.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="t17.jpg" class="product-thumb" alt="">
+                </div>
+            </div>
+            
+        </div>
+   
+
+      <div class="product-info">
+      <p>"The staff was so caring and the treatment was excellent. Highly recommend Punjab Hospital!"</p>
+      <p>"Modern facilities and skilled doctors. We felt very safe and looked after."</p>
+      </div>
+      
+</section>
+
+<!-- Contact Section -->
+  <header class="contacts">
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>📍 Dehradun Roorkee Rd, Chhutmalpur, Uttar Pradesh, 247662</p>
+  <p>📞 97796 07728</p>
+  <div class="map">
+    <h3>Find Us on Google Maps</h3>
+    <iframe src="https://www.google.com/maps?q=Punjab+Hospital,+Dehradun+Roorkee+Rd,+Chhutmalpur,+Uttar+Pradesh+247662&output=embed"></iframe>
+    <a href="con.html" class="read-more-btn">Read More</a>
+  </div>
+</section>
+ </header>
+
+<!-- Appointment Form Section -->
+ <header class="appointments">
+<section>
+  <h2>Book an Appointment</h2>
+  <form action="#">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="tel" name="phone" placeholder="Your Phone" required>
+    <textarea name="message" rows="4" placeholder="Message/Appointment Details" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+</header>
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="#doctors">Our Team</a></li>
+        <li><a href="#">Quality Policy</a></li>
+        <li><a href="emer24.html">24×7 Services</a></li>
+
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h3>Important Link</h3>
+      <ul>
+        <li><a href="#services">Diagnostic Services</a></li>
+        <li><a href="gallery.html">Photo Gallery</a></li>
+        <li><a href="testi.html">Testimonials</a></li>
+        <li><a href="#">Career</a></li>
+        <li><a href="con.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h3>Contact Info</h3>
+      <p>Dehradun Roorkee Rd, Chhutmalpur,<br>Uttar Pradesh, 247662</p>
+      <p>‪+91 -  97796 07728‬</p>
+      <p><a href="mailto:punjabhospitalphc2@gmail.com">punjabhospitalphc2@gmail.com</a></p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1DXt1NuQZY/?mibextid=qi2Omg"><img src="icons8-facebook-48.png" alt="Facebook"></a>
+        <a href="#"><img src="icons8-instagram-48.png" alt="Instagram"></a>
+        <a href="#"><img src="icons8-youtube-48.png" alt="YouTube"></a>
+      </div>
+</div>
+    </div>
+  </div>
+         <!-- Credit Section -->
+  <div class="footer-credits">
+  Developed &amp; Maintained by 
+  <strong><a href="https://www.linkedin.com/in/yashbkaushik" target="_blank">Yash Kaushik</a></strong> 
+  & <strong><a href="https://www.linkedin.com/in/akshay-arya-546806237" target="_blank">Akshya Arya</a></strong>
+</div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Chhutmalpur Punjab Health Care Hospital. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- Call to Action Button -->
+<a href="tel:+9779607728" class="call-button">
+  <i class="fas fa-phone-alt"></i>
+</a>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  $(document).ready(function() {
+    // Initialize Owl Carousel
+    $(".owl-carousel").owlCarousel({
+      items: 1,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true,
+      dots: false,
+      nav: true
+    });
+
+    // Scroll animations
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+          section.classList.add("visible");
+        }
+      });
+    });
+  });
+
+  // doctors Animation
+  const productContainers = [...document.querySelectorAll('.product-container')];
+const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+productContainers.forEach((item, i) => {
+    let containerDimensions = item.getBoundingClientRect();
+    let containerWidth = containerDimensions.width;
+
+    nxtBtn[i].addEventListener('click', () => {
+        item.scrollLeft += containerWidth;
+    })
+
+    preBtn[i].addEventListener('click', () => {
+        item.scrollLeft -= containerWidth;
+    })
+})
+// navbar section
+  // Hamburger menu toggle for mobile
+   document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navbarItemsWrapper = document.getElementById('navbar-items-wrapper');
+        const navbarItemsWithDropdown = document.querySelectorAll('.navbar-item[id]'); // Selects items with IDs (About Us, departments, Scope of Services, Gallery) that have dropdowns.
+
+        if (hamburgerMenu && navbarItemsWrapper) {
+            hamburgerMenu.addEventListener('click', function() {
+                hamburgerMenu.classList.toggle('active');
+                navbarItemsWrapper.classList.toggle('active');
+                // Close any open dropdowns when main menu is closed
+                if (!navbarItemsWrapper.classList.contains('active')) {
+                    navbarItemsWithDropdown.forEach(item => {
+                        item.classList.remove('dropdown-open');
+                    });
+                }
+            });
+
+            // Handle dropdown toggling on mobile
+            navbarItemsWithDropdown.forEach(item => {
+                item.addEventListener('click', function(event) {
+                    // Only apply this logic on mobile
+                    if (window.innerWidth <= 768) {
+                        const dropdownMenu = this.querySelector('.dropdown-menu');
+                        if (dropdownMenu) {
+                            // Prevent the default link behavior if it's a dropdown toggle
+                            // And prevent closing the main menu immediately
+                            if (event.target.closest('.dropdown-arrow') || event.target === this || event.target.closest('.navbar-item')) {
+                                event.preventDefault(); // Stop default link behavior for the parent item
+                                this.classList.toggle('dropdown-open'); // Toggle the class to open/close dropdown
+                                // Close other open dropdowns in the same main menu
+                                navbarItemsWithDropdown.forEach(otherItem => {
+                                    if (otherItem !== this) {
+                                        otherItem.classList.remove('dropdown-open');
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            });
+
+
+            // Close mobile menu when a dropdown item (link) is clicked, but not when a parent navbar-item (with dropdown) is clicked
+            navbarItemsWrapper.addEventListener('click', function(event) {
+                // If the clicked element is a direct link within a dropdown item
+                if (event.target.tagName === 'A' && event.target.closest('.dropdown-item')) {
+                    hamburgerMenu.classList.remove('active');
+                    navbarItemsWrapper.classList.remove('active');
+                    // Close any open dropdowns
+                    navbarItemsWithDropdown.forEach(item => {
+                        item.classList.remove('dropdown-open');
+                    });
+                }
+            });
+
+            // Close the mobile menu if the window is resized to desktop size
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    hamburgerMenu.classList.remove('active');
+                    navbarItemsWrapper.classList.remove('active');
+                    // Also close any open dropdowns
+                    navbarItemsWithDropdown.forEach(item => {
+                        item.classList.remove('dropdown-open');
+                    });
+                }
+            });
+        } else {
+            console.error("Could not find one or both elements: hamburger-menu or navbar-items-wrapper. Check your HTML IDs.");
+        }
+    });
+    
+    
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('#about-us .slide'); 
+    let currentIndex = 0;
+
+    // hide all slides initially
+    slides.forEach(slide => slide.style.display = 'none');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = (i === index) ? 'block' : 'none';
+      });
+    }
+
+    // show the first slide initially
+    showSlide(currentIndex);
+
+    // function to show next slide
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    // change image every 3 seconds
+    setInterval(nextSlide, 3000); 
+  });
+
+</script>
+</html>

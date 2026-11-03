@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    video{
+      width: 100%;
+      height: auto;
+    }
+    /* Gallery Headings */
+    .gallery-header {
+      background: linear-gradient(90deg, #1c446c 50%, #166e92 100%);
+      color: #fff;
+      padding: 16px 150px;
+      text-align: center;
+    }
+    .gallery-header h1 {
+      margin: 0 0 10px 0;
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .gallery-header p {
+      margin: 0;
+      font-size: 1.35rem;
+      font-style: italic;
+      font-family: Georgia, serif;
+    }
+/* video gallery */
+     .gallery-container {
+      padding: 30px;
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      width: 100%;
+      max-width: 1200px;
+    }
+    .gallery-item {
+      background: white;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+    }
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: 2fr 2fr;
+      }
+    }
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 2fr;
+      }
+      .gallery-container {
+        padding: 60px;
+      }
+    }
+      </style>
+</head>
+<body>
+
+  <!-- Gallery Header -->
+  <div class="gallery-header">
+    <h1>Video GALLERY</h1>
+    <p>Video Gallery for Punjab Hospital</p>
+  </div>
+  <div class="gallery-container">
+    <div class="gallery-grid">
+      <div class="gallery-item">
+       <video width="400" controls>
+       <source src="WhatsApp Video 2025-06-03 at 16.53.58_79373ec8.mp4" type="video/mp4">
+       <source src="WhatsApp Video 2025-06-03 at 16.53.58_79373ec8.mp4" type="video/ogg">
+       </video>
+      </div>
+    </div>
+  </div>
+
+ </body>
+</html>
